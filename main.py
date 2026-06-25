@@ -33,6 +33,7 @@ def fetch_internships(word):
         )
 
         response.raise_for_status()
+        time.sleep(1)
 
         parsed_html = BeautifulSoup(response.text, "html.parser")
 
@@ -95,12 +96,25 @@ def fetch_internships(word):
 
         internship_df = pd.DataFrame(collected_data)
 
+        # Remove duplicates from current scrape
         internship_df.drop_duplicates(inplace=True)
 
-        internship_df.to_csv(OUTPUT_FILE,
-                            mode="a",
-                            header=not pd.io.common.file_exists(OUTPUT_FILE),
-                            index=False)
+        # Check if CSV already exists
+        if pd.io.common.file_exists(OUTPUT_FILE):
+
+            old_df = pd.read_csv(OUTPUT_FILE)
+
+            # Combine old + new data
+            internship_df = pd.concat([old_df, internship_df])
+
+            # Remove duplicates again
+            internship_df.drop_duplicates(inplace=True)
+
+        # Save updated data
+        internship_df.to_csv(
+            OUTPUT_FILE,
+            index=False
+        )
 
         print("\n==============================")
         print(" Data Saved Successfully ")
