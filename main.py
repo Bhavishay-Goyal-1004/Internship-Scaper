@@ -116,13 +116,14 @@ def fetch_internships(word):
             index=False
         )
 
-        print("\n==============================")
-        print(" Data Saved Successfully ")
-        print("==============================")
+        
+        print("Data Saved Successfully ")
+        print("==================================")
 
         print(f"File Name: {OUTPUT_FILE}")
 
         print(f"Total Saved Records: {len(internship_df)}")
+        print("==================================")
 
     except requests.exceptions.Timeout:
         print("Connection timed out.")
