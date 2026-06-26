@@ -55,7 +55,7 @@ internship_scraper/
 ## Clone Repository
 
 ```bash
-git clone <your-github-repo-link>
+git clone https://github.com/Bhavishay-Goyal-1004/Internship-Scaper.git
 ```
 
 ## Install Required Libraries
@@ -150,6 +150,8 @@ Total Saved Records: 25
 | Title | Company | Location | Link | Date Posted |
 | ----- | ------- | -------- | ---- | ----------- |
 
+
+<img width="964" height="455" alt="{B4165AA6-68CD-4BF8-B80A-BA8C2FC8FDA9}" src="https://github.com/user-attachments/assets/370bd550-d9e6-4c9f-bc57-5f077e33973d" />
 ---
 
 # Duplicate Handling
